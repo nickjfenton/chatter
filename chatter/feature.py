@@ -1,6 +1,6 @@
 from typing import Tuple, Callable, Dict
 
-from chatter.Queue import Subscriber, Message
+from chatter.queue import Subscriber, Message
 
 
 class Feature(Subscriber):

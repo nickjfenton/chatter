@@ -1,4 +1,4 @@
-from chatter.Queue import Subscriber, Message
+from chatter.queue import Subscriber, Message
 
 
 class ChatClient(Subscriber):

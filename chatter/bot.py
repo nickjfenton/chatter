@@ -1,8 +1,8 @@
 from typing import List
 
-from chatter.ChatClient import ChatClient
-from chatter.Feature import Feature
-from chatter.Queue import MessageQueue
+from chatter.chat_client import ChatClient
+from chatter.feature import Feature
+from chatter.queue import MessageQueue
 
 
 class Bot:
