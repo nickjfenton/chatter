@@ -1,5 +1,7 @@
 # Chatter
 
+[![codecov](https://codecov.io/gh/nickjfenton/chatter/branch/develop/graph/badge.svg?token=4HYFV573S8)](https://codecov.io/gh/nickjfenton/chatter)
+
 ## Welcome to Chatter!
 
 Chatter is a framework with the goal of allowing you to quickly and easily create chatbots. It hides
