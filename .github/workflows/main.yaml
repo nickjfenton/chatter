@@ -28,7 +28,7 @@ jobs:
         run: pipenv run python -m pylint --fail-under 8 chatter
       - name: collect coverage
         run: |
-          pipenv run python -m coverage run --branch -m unittest
+          pipenv run python -m coverage run --branch --source chatter -m unittest
           pipenv run python -m coverage xml
       - name: upload coverage
         uses: codecov/codecov-action@v2
