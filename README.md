@@ -1,6 +1,7 @@
 # Chatter
 
 [![codecov](https://codecov.io/gh/nickjfenton/chatter/branch/develop/graph/badge.svg?token=4HYFV573S8)](https://codecov.io/gh/nickjfenton/chatter)
+[![Documentation Status](https://readthedocs.org/projects/chatter-py/badge/?version=latest)](https://chatter-py.readthedocs.io/en/latest/?badge=latest)
 
 ## Welcome to Chatter!
 

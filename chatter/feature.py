@@ -33,7 +33,7 @@ The subcommand decorator is used to indicate methods of a
 of the message matches the `triggers` given by the subcommand.
 
 A subcommand's triggers are defined by passing parameters to the
-subcommand decorator before defining a method.
+subcommand decorator.
 
 A subcommand can have multiple triggers, and different subcommands can
 share a trigger word to allow for separation of concerns when processing
