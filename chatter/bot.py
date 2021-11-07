@@ -82,11 +82,13 @@ class Bot:
 
     The Bot class takes an instantiated :class:`~chatter.chat_client.ChatClient`
     and a collection of :class:`~chatter.feature.Feature` classes. The bot
-    handles instantiating the features, segregating them into individual rooms.
-    When a message is forwarded by the chat client, the Bot will send it to the
-    corresponding Room for further processing by the appropriate feature.
+    handles instantiating the `Features`, segregating them into individual
+    :class:`~Room` objects.
+    When a :class:`~chatter.message.Message` is forwarded by the `ChatClient`,
+    the `Bot` will send it to the corresponding `Room` for further processing by
+    the appropriate `Feature`.
 
-    :param chat_client: The chat client that the bot will receive `Messages`
+    :param chat_client: The `ChatClient` that the bot will receive `Messages`
         from
     :param feature_classes: The :class:`~chatter.feature.Feature` classes that
         will be enabled for each :class:`~Room`
@@ -115,8 +117,8 @@ class Bot:
         """
         Start the :class:`Bot`.
 
-        Starting the Bot is a blocking call, and will cause the bot to begin
-        listening to all chat clients and routing messages to features.
+        Starting the `Bot` is a blocking call, and will cause the `Bot` to begin
+        listening to the `ChatClient` and routing `Messages` to `Features`.
         """
         self._chat_client.start_listening()
 
@@ -125,7 +127,7 @@ class Bot:
         Send a message to a room. If a room does not exist, create the room
         first, then send the message to it.
 
-        :param message: a Message to send to the room
+        :param message: a Message to send to the Room
         """
         if message.room not in self.rooms.keys():
             self.rooms[message.room] = self._create_room(message.room)
