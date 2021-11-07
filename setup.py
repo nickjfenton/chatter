@@ -6,7 +6,7 @@ long_description = pathlib.Path("README.md").read_text()
 
 # for options, see https://github.com/pypa/sampleproject/blob/main/setup.py
 setup(
-    name='chatter',
+    name='chatter-py',
     version='1.0.0b',
     packages=['chatter'],
     url='https://github.com/nickjfenton/chatter',
@@ -22,5 +22,6 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3"
     ],
-    python_requires=">=3"
+    python_requires=">=3",
+    keywords="chatbot, framework"
 )
