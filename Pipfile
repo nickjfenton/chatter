@@ -6,6 +6,12 @@ name = "pypi"
 [packages]
 
 [dev-packages]
+mypy = "*"
+pylint = "*"
+coverage = "*"
+sphinx = "*"
+furo = "*"
+myst-parser = "*"
 
 [requires]
 python_version = "3.9"
