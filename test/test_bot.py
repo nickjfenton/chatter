@@ -22,8 +22,7 @@ class TestBot(unittest.TestCase):
     def test_room_is_created_for_each_chat_client_room(self):
         # given
         chat_client = Mock()
-        room_type = Mock(Room)
-        bot = Bot(chat_client, [Mock(Feature)], config=None, room_class=room_type)
+        bot = Bot(chat_client, [Mock(Feature)], config=None)
 
         # when
         chat_client.send_to_bot(Message(text=["hello"], room="foo"))
@@ -33,10 +32,26 @@ class TestBot(unittest.TestCase):
         self.assertEqual(2, len(bot.rooms))
         self.assertEqual(bot.rooms.keys(), {"foo", "bar"})
 
+    def test_bot_instantiates_rooms_correctly(self):
+        # given
+        chat_client = Mock()
+        room_type = Mock()
+        feature_type = Mock()
+        config = Mock()
+        Bot(chat_client, [feature_type], config, room_type)
+
+        # when
+        chat_client.send_to_bot(Message(text=["hello"], room="foo"))
+
+        # then
+        room_type.assert_called_once_with([feature_type],
+                                          chat_client.send_to_client,
+                                          "foo", config)
+
     def test_message_is_routed_to_correct_room(self):
         # given
         chat_client = Mock()
-        room_type = Mock(Room)
+        room_type = Mock()
         room_foo = Mock()
         room_bar = Mock()
         room_type.side_effect = [room_foo, room_bar]
