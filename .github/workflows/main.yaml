@@ -59,4 +59,16 @@ jobs:
     if: github.ref == 'refs/heads/master'
     steps:
       - name: Check out repository code
-        run: echo "test"
+        uses: actions/checkout@v2
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: upload to pypi
+        env:
+          PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install twine build
+          python -m build
+          python -m twine upload dist/* -u nickjfenton -p "$TEST_PYPI_PASSWORD"
