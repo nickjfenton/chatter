@@ -25,7 +25,7 @@ jobs:
       - name: run unit tests
         run: pipenv run python -m unittest
       - name: lint
-        run: pipenv run python -m pylint --fail-under 8 chatter
+        run: pipenv run python -m pylint --fail-under 8 chatter_py
       - name: collect coverage
         run: |
           pipenv run python -m coverage run --branch --source chatter -m unittest

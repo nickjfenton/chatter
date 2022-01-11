@@ -1,6 +1,6 @@
 import unittest
 
-from chatter import Message
+from chatter_py import Message
 
 
 class TestMessage(unittest.TestCase):

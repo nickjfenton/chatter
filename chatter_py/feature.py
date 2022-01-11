@@ -1,7 +1,7 @@
 from inspect import signature
 from typing import Tuple, Callable, Dict, List, Union
 
-from chatter.message import Message, FeatureMessage
+from chatter_py.message import Message, FeatureMessage
 
 
 class _Subcommand:

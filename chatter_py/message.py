@@ -10,6 +10,7 @@ class FeatureMessage:
     `FeatureMessages` do not require a `Feature` to know anything
     about the destination of their message."""
     text: List[str]
+    data: dict
     room: Optional[str] = None
 
 
@@ -23,6 +24,7 @@ class Message:
     """
     text: List[str]
     room: str
+    data: dict
 
     def __post_init__(self):
         self.original_text = self.text.copy()

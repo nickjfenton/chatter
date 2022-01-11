@@ -1,9 +1,9 @@
 import unittest
 from unittest.mock import Mock, call
 
-from chatter import Feature
-from chatter.bot import Bot, Room
-from chatter.message import Message, FeatureMessage
+from chatter_py import Feature
+from chatter_py.bot import Bot, Room
+from chatter_py.message import Message, FeatureMessage
 
 
 class TestBot(unittest.TestCase):

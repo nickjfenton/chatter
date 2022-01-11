@@ -1,8 +1,8 @@
 import unittest
 from unittest.mock import Mock
 
-from chatter.feature import subcommand, Feature
-from chatter.message import Message
+from chatter_py.feature import subcommand, Feature
+from chatter_py.message import Message
 
 
 class TestSubcommand(unittest.TestCase):

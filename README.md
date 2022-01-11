@@ -12,7 +12,7 @@ custom features and delivering a working chatbot.
 Take a look:
 
 ```python
-from chatter import ChatClient, Feature, Bot, Message
+from chatter_py import ChatClient, Feature, Bot, Message
 from typing import Any
 
 
@@ -66,7 +66,7 @@ standardised
 You could even use a command-line frontend for testing your bot's logic:
 
 ```python
-from chatter import ChatClient, Message
+from chatter_py import ChatClient, Message
 
 
 class CommandLine(ChatClient):

@@ -1,18 +1,18 @@
 from typing import Dict, Type, Iterable, Callable, Union
 
-from chatter.chat_client import ChatClient
-from chatter.feature import Feature
-from chatter.message import Message, FeatureMessage
+from chatter_py.chat_client import ChatClient
+from chatter_py.feature import Feature
+from chatter_py.message import Message, FeatureMessage
 
 
 class Room:
-    """A :class:`Room` is composed of :class:`~chatter.feature.Feature` classes,
-    and handles routing a :class:`~chatter.message.Message` to the correct
+    """A :class:`Room` is composed of :class:`~chatter_py.feature.Feature` classes,
+    and handles routing a :class:`~chatter_py.message.Message` to the correct
     :class:`Feature` based on what is contained within the :class:`Message`.
 
     The default :class:`Room` implementation used by the :class:`Bot` routes
-    a :class:`~chatter.message.Message` based on the first word of its text. If
-    the first word in the text matches a :class:`~chatter.feature.Feature`'s
+    a :class:`~chatter_py.message.Message` based on the first word of its text. If
+    the first word in the text matches a :class:`~chatter_py.feature.Feature`'s
     name, the first word of the text will be removed and the message will be
     passed to the Feature to handle.
 
@@ -41,14 +41,14 @@ class Room:
 
     def send_to_feature(self, message: Message) -> None:
         """
-        Route a :class:`~chatter.message.Message` to a
-        :class:`~chatter.feature.Feature`. The default :class:`Room` behaviour
-        is to route a :class:`~chatter.message.Message` based on the first word
+        Route a :class:`~chatter_py.message.Message` to a
+        :class:`~chatter_py.feature.Feature`. The default :class:`Room` behaviour
+        is to route a :class:`~chatter_py.message.Message` based on the first word
         of its text. However, :class:`Bot` will accept a subclass of
         :class:`Room` if some other behaviour is desired.
 
-        :param message: the :class:`~chatter.message.Message` to pass to a
-            :class:`~chatter.feature.Feature`
+        :param message: the :class:`~chatter_py.message.Message` to pass to a
+            :class:`~chatter_py.feature.Feature`
         """
         if message.text[0].upper() in self.features:
             feature = message.text.pop(0).upper()
@@ -80,23 +80,23 @@ class Bot:
     """
     The :class:`Bot` is the entrypoint to the application.
 
-    The Bot class takes an instantiated :class:`~chatter.chat_client.ChatClient`
-    and a collection of :class:`~chatter.feature.Feature` classes. The bot
+    The Bot class takes an instantiated :class:`~chatter_py.chat_client.ChatClient`
+    and a collection of :class:`~chatter_py.feature.Feature` classes. The bot
     handles instantiating the `Features`, segregating them into individual
     :class:`~Room` objects.
-    When a :class:`~chatter.message.Message` is forwarded by the `ChatClient`,
+    When a :class:`~chatter_py.message.Message` is forwarded by the `ChatClient`,
     the `Bot` will send it to the corresponding `Room` for further processing by
     the appropriate `Feature`.
 
     :param chat_client: The `ChatClient` that the bot will receive `Messages`
         from
-    :param feature_classes: The :class:`~chatter.feature.Feature` classes that
+    :param feature_classes: The :class:`~chatter_py.feature.Feature` classes that
         will be enabled for each :class:`~Room`
     :param config: config that is passed to all :class:`~Room` and
-        :class:`~chatter.feature.Feature` classes
+        :class:`~chatter_py.feature.Feature` classes
     :param room_class: The type of :class:`~Room` to use for routing. The
         default `Room` routes based on the first word of the `text` of a
-        given :class:`~chatter.message.Message`. By subclassing `Room`,
+        given :class:`~chatter_py.message.Message`. By subclassing `Room`,
         this routing logic can be changed.
     """
 
