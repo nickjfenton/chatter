@@ -77,7 +77,7 @@ class Stub(Feature):
 
 class TestRoom(unittest.TestCase):
 
-    def test_add_room_to_feature_messages_to_chat_if_room_is_not_present(self):
+    def test_room_is_added_to_feature_messages_to_chat_if_room_is_not_present(self):
         # given
         feature = Stub
         send_to_chat = Mock()
@@ -88,6 +88,19 @@ class TestRoom(unittest.TestCase):
 
         # then
         send_to_chat.assert_called_once_with(Message(text=["hello"], room="1"))
+
+    def test_data_is_copied_over_from_feature_messages_to_chat(self):
+        # given
+        feature = Stub
+        send_to_chat = Mock()
+        room = Room([feature], send_to_chat, "1")
+
+        # when
+        room.features["STUB"].send_to_chat(FeatureMessage(text=["hello"], data={"foo": "bar"}))
+
+        # then
+        send_to_chat.assert_called_once_with(Message(text=["hello"], room="1",
+                                                     data={"foo": "bar"}))
 
     def test_room_does_not_overwrite_room_on_messages_where_it_is_present(self):
         # given

@@ -70,7 +70,7 @@ class Room:
         allowing a :class:`Feature` to ignore any details about the specific
         room it is talking to if it wishes.
         """
-        forward_msg = Message(message.text, message.room)
+        forward_msg = Message(message.text, message.room, data=message.data)
         if message.room is None:
             forward_msg.room = self.address
         self._send_to_chat(forward_msg)

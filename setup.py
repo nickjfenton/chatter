@@ -7,7 +7,7 @@ long_description = pathlib.Path("README.md").read_text()
 # for options, see https://github.com/pypa/sampleproject/blob/main/setup.py
 setup(
     name='chatter_py',
-    version='1.0.0',
+    version='1.0.1',
     packages=['chatter_py'],
     url='https://github.com/nickjfenton/chatter',
     license='MIT',
